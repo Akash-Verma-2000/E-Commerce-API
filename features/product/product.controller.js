@@ -9,7 +9,6 @@ export default class ProductController {
     //THIS FUNCTION TO CREATES A NEW PRODUCT
     async createProduct(req, res) {
         try {
-            console.log(req.body);
             //CALLING PRODUCT REPOSITORY FUNCTION
             const newPoduct = await productRepository.createProduct(req.body);
             //CHECKING IF THE PRODUCT IS ALREADY PRESENT
@@ -29,7 +28,6 @@ export default class ProductController {
                 return res.status(201).send(obj);
             }
         } catch (err) {
-            console.log(err);
             //HANDLING ERRORS IF FAILS TO CREATE PRODUCT
             return res.status(500).send({ data: { message: "Failed To Create Product" } });
         }
