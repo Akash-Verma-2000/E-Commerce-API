@@ -1,0 +1,136 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "1.0.0",
+        "description": "These are the APIs for an Ecommerce admin panel",
+        "title": "Ecommerce API"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:5200"
+        }
+    ],
+    "paths": {
+        "/products/create": {
+            "post": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Add Product",
+                "description": "Adds a new product",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "required": true
+                                    },
+                                    "quantity": {
+                                        "type": "number",
+                                        "required": true
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "New Product Object"
+                    },
+                    "409": {
+                        "description": "Product Already Exists"
+                    },
+                    "500": {
+                        "description": "Failed To Create Product"
+                    }
+                }
+            }
+        },
+        "/products": {
+            "get": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Get All Products",
+                "description": "Returns all the products available",
+                "responses": {
+                    "200": {
+                        "description": "Product's Array"
+                    },
+                    "500": {
+                        "description": "Failed To Fetch Products"
+                    }
+                }
+            }
+        },
+        "/products/{ID}": {
+            "delete": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Delete Product By ID",
+                "parameters": [
+                    {
+                        "name": "ID",
+                        "in": "path",
+                        " required": true,
+                        "description": "Enter The Product ID"
+                    }
+                ],
+                "description": "Takes the product id as url parameters and deletes the specific product",
+                "responses": {
+                    "200": {
+                        "description": "product deleted"
+                    },
+                    "404": {
+                        "description": "Product Not Found"
+                    },
+                    "500": {
+                        "description": "Failed To Delete Product"
+                    }
+                }
+            }
+        },
+        "/products/{ID}/update_quantity": {
+            "put": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Update A Product",
+                "parameters": [
+                    {
+                        "name": "ID",
+                        "in": "path",
+                        " required": true,
+                        "description": "Enter The Product ID"
+                    },
+                    {
+                        "name": "number",
+                        "in": "query",
+                        "description": "Enter the number by which you want to update the quantity of the product. The number can be positive or negative.",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "description": "Takes the product ID as URL parameter and returns the updated product object.",
+                "responses": {
+                    "201": {
+                        "description": "Updated Product Object"
+                    },
+                    "404": {
+                        "description": "Product Not Found"
+                    },
+                    "500": {
+                        "description": "Failed To Update Product"
+                    }
+                }
+            }
+        }
+    }
+}
