@@ -2,8 +2,6 @@
 
 These APIs are developed for an E-commerce admin panel allowing CRUD operations (Create, Read, Update, Delete) on products.
 
-I have also created the documentaion for all the APIs you can refer them to test the APIs
-
 
 ## Technologies
 
@@ -28,7 +26,6 @@ I have also created the documentaion for all the APIs you can refer them to test
 - **cors**: Handles CORS policis.
 - **Body-parser**: Middleware to parse incoming request bodies.
 - **Mongoose**: MongoDB object modeling tool designed to work in an asynchronous environment.
-- **swagger-ui-express**: Swagger UI Express for the API documentation
 
 ## Project Structure
 
@@ -59,7 +56,7 @@ I have also created the documentaion for all the APIs you can refer them to test
 
 - **`README.md`** Contains complete information of the application.
 
-- **`swagger.json`** Documentations of the APIs.
+
 
 
 
@@ -71,7 +68,6 @@ I have also created the documentaion for all the APIs you can refer them to test
 - `GET /products/`: Get all products.
 - `DELETE /products/:id`: Delete a product by ID.
 - `PUT /products/:id/update_quantity`: Update product quantity by ID.
-- `GET /api-docs`: Get documentations.
 
 ## Screenshots
 
