@@ -13,10 +13,8 @@ import { productRouter } from "./features/product/product.route.js";
 // CREATING AN EXPRESS SERVER INSTANCE
 const server = express();
 
-
 // USING BODY PARSER TO PARSE JSON REQUESTS
 server.use(bodyParser.json());
-
 
 // USING PRODUCT ROUTER FOR ROUTING 
 server.use("/products", productRouter);
