@@ -4,6 +4,9 @@ import express from "express";
 //IMPORTING BODY PARSER 
 import bodyParser from "body-parser";
 
+//IMPORTING CORS
+import cors from "cors";
+
 //IMPORTING SWAGGER UI EXPRESS
 import swagger from 'swagger-ui-express';
 
@@ -17,6 +20,9 @@ import { productRouter } from "./features/product/product.route.js";
 
 // CREATING AN EXPRESS SERVER INSTANCE
 const server = express();
+
+//CORS POLICY COFIGURATIONS
+server.use(cors());
 
 // USING BODY PARSER TO PARSE JSON REQUESTS
 server.use(bodyParser.json());
